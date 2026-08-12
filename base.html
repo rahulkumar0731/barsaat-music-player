@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="BARSAAT — music for rainy nights."
+    >
+
+    <title>BARSAAT — Music for Rainy Nights</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- Background -->
+        <div class="background"></div>
+
+        <!-- Dark overlay -->
+        <div class="background-overlay"></div>
+
+        <!-- Animated rain will be added here later -->
+        <div id="rain-container"></div>
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="header">
+
+            <a href="#" class="logo">
+                BARSAAT
+            </a>
+
+            <button
+                class="sound-button"
+                id="sound-button"
+                aria-label="Toggle sound"
+            >
+                ♪
+            </button>
+
+        </header>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <section class="hero-content">
+
+            <p class="eyebrow">
+                बारिश • संगीत • यादें
+            </p>
+
+            <h1>
+                BARSAAT
+            </h1>
+
+            <p class="tagline">
+                कुछ गाने बारिश के लिए होते हैं...
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             MUSIC PLAYER
+        ========================== -->
+
+        <section class="music-player">
+
+            <!-- Album artwork -->
+            <div class="album-art">
+
+                <img
+                    id="album-cover"
+                    src="assets/rain_image.png"
+                    alt="Album artwork"
+                >
+
+            </div>
+
+
+            <!-- Song information -->
+            <div class="song-details">
+
+                <h2 id="song-title">
+                    Loading...
+                </h2>
+
+                <p id="artist-name">
+                    YouTube Music
+                </p>
+
+            </div>
+
+
+            <!-- Controls -->
+            <div class="player-controls">
+
+                <button
+                    id="previous-button"
+                    class="control-button"
+                    aria-label="Previous song"
+                >
+                    <span>◀</span>
+                </button>
+
+
+                <button
+                    id="play-button"
+                    class="play-button"
+                    aria-label="Play"
+                >
+                    <span id="play-icon">▶</span>
+                </button>
+
+
+                <button
+                    id="next-button"
+                    class="control-button"
+                    aria-label="Next song"
+                >
+                    <span>▶</span>
+                </button>
+
+            </div>
+
+
+            <!-- Progress -->
+            <div class="progress-section">
+
+                <span id="current-time">
+                    0:00
+                </span>
+
+                <div
+                    class="progress-container"
+                    id="progress-container"
+                >
+                    <div
+                        class="progress-bar"
+                        id="progress-bar"
+                    ></div>
+                </div>
+
+                <span id="duration">
+                    0:00
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- Hidden YouTube player -->
+        <div id="youtube-player"></div>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer class="footer">
+            made with <span>♥</span>
+        </footer>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="file.js"></script>
+
+</body>
+</html>
