@@ -2,7 +2,122 @@
 // BARSAAT
 // Rain Animation + YouTube Music Player
 // ==========================================
+// ==========================================
+// SUPABASE
+// ONLINE LISTENER COUNTER
+// ==========================================
 
+const SUPABASE_URL =
+    "https://orzbomqrefrtkehqrfoo.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_uIpGO3kfTdIFHXcVtgFpDw_O1YfJ5Kw";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+// ==========================================
+// BARSAAT ONLINE PRESENCE
+// ==========================================
+
+const presenceChannel =
+    supabaseClient.channel(
+        "barsaat-online",
+        {
+            config: {
+                presence: {
+                    key:
+                        crypto.randomUUID()
+                }
+            }
+        }
+    );
+// ==========================================
+// LISTENER UI
+// ==========================================
+
+const listenerCount =
+    document.getElementById(
+        "listener-count"
+    );
+
+const listenerLabel =
+    document.getElementById(
+        "listener-label"
+    );
+// ==========================================
+// UPDATE LISTENER COUNT
+// ==========================================
+
+function updateListenerCount() {
+
+    const state =
+        presenceChannel.presenceState();
+
+    const users =
+        Object.keys(state);
+
+    const count =
+        users.length;
+
+
+    // Update number
+    listenerCount.textContent =
+        count;
+
+
+    // Small animation
+    listenerCount.classList.remove(
+        "listener-count-pop"
+    );
+
+    // Force browser to restart animation
+    void listenerCount.offsetWidth;
+
+    listenerCount.classList.add(
+        "listener-count-pop"
+    );
+
+}
+// ==========================================
+// CONNECT TO PRESENCE
+// ==========================================
+
+presenceChannel
+    .on(
+        "presence",
+        {
+            event: "sync"
+        },
+        () => {
+
+            updateListenerCount();
+
+        }
+    )
+    .subscribe(
+        async (status) => {
+
+            if (
+                status === "SUBSCRIBED"
+            ) {
+
+                await presenceChannel.track({
+
+                    online_at:
+                        new Date().toISOString()
+
+                });
+
+                updateListenerCount();
+
+            }
+
+        }
+    );
 
 // ==========================================
 // RAIN ANIMATION

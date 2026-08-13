@@ -36,21 +36,44 @@
              HEADER
         ========================== -->
 
-        <header class="header">
+ <header class="header">
 
-            <a href="#" class="logo">
-                BARSAAT
-            </a>
+        <a href="#" class="logo">
+              BARSAAT
+        </a>
 
-            <button
-                class="sound-button"
-                id="sound-button"
-                aria-label="Toggle sound"
-            >
-                ♪
-            </button>
 
-        </header>
+    <div class="header-right">
+
+        <button
+            class="sound-button"
+            id="sound-button"
+            aria-label="Toggle sound"
+        >
+            ♪
+        </button>
+
+
+        <div
+            class="listeners"
+            id="listeners"
+        >
+
+            <span class="online-dot"></span>
+
+            <span id="listener-count">
+                0
+            </span>
+
+            <span id="listener-label">
+                listening
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
 
 
         <!-- =========================
@@ -173,7 +196,7 @@
         ========================== -->
 
         <footer class="footer">
-            made with <span>♥</span>
+            made with <span>♥</span> by Rahul
         </footer>
 
     </main>
@@ -181,6 +204,7 @@
 
     <!-- JavaScript -->
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="file.js"></script>
 
 </body>

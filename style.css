@@ -745,6 +745,22 @@ body {
 
         font-size: 9px;
     }
+
+    .header-right {
+    gap: 7px;
+}
+
+.listeners {
+    padding: 6px 9px;
+
+    font-size: 9px;
+}
+
+.online-dot {
+    width: 5px;
+
+    height: 5px;
+}
 }
 
 .app::after {
@@ -764,4 +780,138 @@ body {
             transparent 35%,
             rgba(0, 0, 0, 0.32) 100%
         );
+}
+/* ==========================================
+   HEADER RIGHT
+========================================== */
+
+.header-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* ==========================================
+   LISTENER COUNTER
+========================================== */
+
+.listeners {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 7px 11px;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    background:
+        rgba(10, 18, 28, 0.38);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 10px;
+
+    letter-spacing: 0.3px;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.18);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.listeners:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   ONLINE DOT
+========================================== */
+
+.online-dot {
+    width: 6px;
+
+    height: 6px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #7dffb2;
+
+    box-shadow:
+        0 0 7px rgba(125, 255, 178, 0.75);
+
+    animation:
+        onlinePulse 2s ease-in-out infinite;
+}
+
+
+@keyframes onlinePulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+
+        transform: scale(0.9);
+
+        box-shadow:
+            0 0 5px
+            rgba(125, 255, 178, 0.5);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.15);
+
+        box-shadow:
+            0 0 12px
+            rgba(125, 255, 178, 0.9);
+    }
+
+}
+/* ==========================================
+   LISTENER COUNT CHANGE
+========================================== */
+
+.listener-count-pop {
+    animation: listenerCountPop 0.35s ease;
+}
+
+@keyframes listenerCountPop {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
 }
